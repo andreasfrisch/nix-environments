@@ -1,22 +1,18 @@
-     inherit system;
-        };
+{
+  description = "Python development environment";
 
-        python = pkgs.python311; # or pkgs.python312 if you want 3.12
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
+
+  outputs = { self, nixpkgs, flake-utils }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs { inherit system; };
       in {
-        devShells.python = pkgs.mkShell {
-          name = "python-dev";
-
-          buildInputs = [
-            python
-            python.pkgs.pip
-            python.pkgs.setuptools
-            python.pkgs.wheel
-          ];
-
-          shellHook = ''
-            echo "🐍 Python dev shell active (Python ${python.version})"
-            echo "Use 'pip install --user ...' to install local packages"
-          '';
+        devShells.default = pkgs.mkShell {
+          buildInputs = [ pkgs.python3 ];
         };
       });
 }
