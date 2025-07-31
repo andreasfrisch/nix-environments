@@ -1,0 +1,47 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1735563628,
+        "narHash": "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b134951a4c9f3c995fd7be05f3243f8ecd65d798",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-24.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "python": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "dir": "python",
+        "lastModified": 1753947508,
+        "narHash": "sha256-a6JoYnPHfezra+Ta36kw5yX69ySlZKs6nl+T631QLDs=",
+        "owner": "andreasfrisch",
+        "repo": "nix-environments",
+        "rev": "f91e51fb01070d6a96efae732acf65a10039032a",
+        "type": "github"
+      },
+      "original": {
+        "dir": "python",
+        "owner": "andreasfrisch",
+        "repo": "nix-environments",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "python": "python"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
