@@ -1,7 +1,7 @@
 {
   description = "Flake delegating to dev shells in subfolders";
 
-  inputs.python.url = "path:./python";
+  inputs.python.url = "github:andreasfrisch/nix-environments?dir=python";
 
   outputs = { self, python, ... }: {
     devShells = {
