@@ -1,7 +1,10 @@
 {
-  description = "My development environments";
+  description = "Reusable devShells";
 
-  outputs = inputs @ { self, ... }: {
-    # Don't define anything here; each subflake has its own devShell
+  outputs = { self }: {
+    templates.python = {
+      path = ./python;
+      description = "Python devShell with direnv support";
+    };
   };
 }
