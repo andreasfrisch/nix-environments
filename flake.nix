@@ -1,10 +1,13 @@
 {
-  description = "Reusable devShells";
+  description = "Flake delegating to dev shells in subfolders";
 
-  outputs = { self }: {
-    templates.python = {
-      path = ./python;
-      description = "Python devShell with direnv support";
+  inputs.python.url = "path:./python";
+
+  outputs = { self, python, ... }: {
+    devShells = {
+      x86_64-linux = {
+        python = python.devShells.x86_64-linux.default;
+      };
     };
   };
 }
